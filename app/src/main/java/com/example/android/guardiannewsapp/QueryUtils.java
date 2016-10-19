@@ -1,6 +1,8 @@
 
 package com.example.android.guardiannewsapp;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -145,11 +147,11 @@ public final class QueryUtils {
 
 
                 //decoding the image
-                URL imgUrl = new URL("http://www.slate.com/content/dam/slate/blogs/browbeat/2015/09/01/150901_BB_GoogleNewLogo.jpg.CROP.thumbnail-small.jpg");
-                //Bitmap bmp = BitmapFactory.decodeStream(imgUrl.openConnection().getInputStream());
+                URL imgUrl = new URL(webUrl + "#img-1");
+                Bitmap bmp = BitmapFactory.decodeStream(imgUrl.openConnection().getInputStream());
 
 
-                News newsItem = new News(title, webUrl, webDate);
+                News newsItem = new News(title, webUrl, webDate, bmp);
                 newsList.add(newsItem);
             }
 

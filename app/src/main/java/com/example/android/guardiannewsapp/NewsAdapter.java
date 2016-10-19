@@ -16,10 +16,12 @@
 package com.example.android.guardiannewsapp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -53,9 +55,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
         dateView.setText(pubDate);
 
 //        //set the image
-//        ImageView iv = (ImageView) listItemView.findViewById(R.id.news_thumbnail);
-//        Bitmap thumbnail = currentNewsItem.getImage();
-//        iv.setImageBitmap(thumbnail);
+        ImageView iv = (ImageView) listItemView.findViewById(R.id.news_thumbnail);
+        Bitmap thumbnail = currentNewsItem.getImage();
+        iv.setImageBitmap(thumbnail);
 
         listItemView.setEnabled(false);
         listItemView.setOnClickListener(null);
