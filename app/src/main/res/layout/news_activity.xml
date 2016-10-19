@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="8dp">
+
+<TextView
+    android:id="@+id/news_theme"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Theme: Presidential Debate"
+    style="@style/NewsThemeStyle"
+    android:padding="10dp"
+    />
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_theme"
+        android:orientation="vertical"
+        android:dividerHeight="4px"/>
+
+    <TextView
+        android:id="@+id/empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Nothing found. Search again!"
+        android:textAlignment="center"
+        android:visibility="invisible" />
+
+</RelativeLayout>
