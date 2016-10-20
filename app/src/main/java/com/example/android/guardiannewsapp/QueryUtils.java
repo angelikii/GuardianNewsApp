@@ -30,7 +30,7 @@ public final class QueryUtils {
 
     public static List<News> fetchNewsData(String requestUrl) {
         // Create URL object
-        URL url = createUrl("http://content.guardianapis.com/search?q=debates&api-key=test");
+        URL url = createUrl(requestUrl);
 
         // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
@@ -143,14 +143,12 @@ public final class QueryUtils {
                 String webUrl = currentNewsItem.getString("webUrl");
                 String wD = currentNewsItem.getString("webPublicationDate");
                 String webDate = wD.substring(0, Math.min(wD.length(), 10));
-
-
+                JSONObject fields = currentNewsItem.getJSONObject("fields");
+                String thumbnailUrl = fields.getString("thumbnail");
 
                 //decoding the image
-                URL imgUrl = new URL(webUrl + "#img-1");
+                URL imgUrl = new URL(thumbnailUrl);
                 Bitmap bmp = BitmapFactory.decodeStream(imgUrl.openConnection().getInputStream());
-
-
                 News newsItem = new News(title, webUrl, webDate, bmp);
                 newsList.add(newsItem);
             }

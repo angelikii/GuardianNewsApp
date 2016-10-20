@@ -59,8 +59,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         Bitmap thumbnail = currentNewsItem.getImage();
         iv.setImageBitmap(thumbnail);
 
-        listItemView.setEnabled(false);
-        listItemView.setOnClickListener(null);
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;

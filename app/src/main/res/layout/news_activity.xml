@@ -10,10 +10,16 @@
     android:id="@+id/news_theme"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Theme: Presidential Debate"
+    android:text="@string/theme"
     style="@style/NewsThemeStyle"
     android:padding="10dp"
     />
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/news_theme">
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/list"
@@ -22,6 +28,7 @@
         android:layout_below="@id/news_theme"
         android:orientation="vertical"
         android:dividerHeight="4px"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/empty_state"

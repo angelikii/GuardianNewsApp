@@ -9,5 +9,6 @@
     <string name="IMGexception">Problem building the image URL.</string>
     <string name="IOIMGexception">Problem getting content of the image URL.</string>
     <string name="NetworkError">There is no internet connection.</string>
+    <string name="theme">Theme: Donald Trump</string>
 
 </resources>
