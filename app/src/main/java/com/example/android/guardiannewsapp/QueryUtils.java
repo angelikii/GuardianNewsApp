@@ -31,7 +31,6 @@ public final class QueryUtils {
     public static List<News> fetchNewsData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
-
         // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
         try {
@@ -86,7 +85,6 @@ public final class QueryUtils {
                 return "API request failed. Response Code: " + urlConnection.getResponseCode();
             }
         } catch (IOException e) {
-//            Log.e(LOG_TAG, Resources.getSystem().getString(R.string.IOexceptionHTTP), e);
                         Log.e(LOG_TAG, "Problem making the HTTP request.", e);
 
         } finally {
@@ -135,8 +133,6 @@ public final class QueryUtils {
             JSONArray results = response.getJSONArray("results");
 
             for (int i = 0; i < results.length(); i++) {
- //               ArrayList<String> authors = new ArrayList<>();
-
                 // Get a single news item at position i within the list of newsList
                 JSONObject currentNewsItem = results.getJSONObject(i);
                 String title = currentNewsItem.getString("webTitle");

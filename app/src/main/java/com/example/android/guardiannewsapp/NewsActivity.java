@@ -24,7 +24,7 @@ import static android.view.View.GONE;
 
 public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<List<News>> {
 
-    private static final String NEWS_URL = "http://content.guardianapis.com/search?q=donald%20trump&api-key=test&show-fields=thumbnail";
+    private static final String NEWS_URL = "http://content.guardianapis.com/search?q=donald%20trump&api-key=test&show-fields=thumbnail&from-date=2016-10-15&order-by=newest";
 
   //  String userInput;
     TextView mEmptyStateView;
@@ -53,6 +53,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
         final LoaderManager loaderManager = getLoaderManager();
         loaderManager.initLoader(0, null, NewsActivity.this);
 
+        //after the news are loaded, we start the swipe-refresh Listener, which makes LoaderManager to restart the loader.
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                                                      @Override
@@ -64,7 +65,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
                                                  });
 
 
-        //when clicked upon, the list items lead to the articles.
+        //when clicked upon, the list items lead to the articles through an intent.
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {

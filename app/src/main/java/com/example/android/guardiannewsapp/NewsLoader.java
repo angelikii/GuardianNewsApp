@@ -17,10 +17,8 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     @Override
     protected void onStartLoading() {
-        // what is forceload doing? is it just throwing a RunTime exception?
         forceLoad();
     }
-//why to use onStartLoading to force load and not to put both in loadInBackground? since the declarations are empty
     @Override
     public List<News> loadInBackground() {
         if (mUrl == null) {

@@ -32,8 +32,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     public NewsAdapter(Context context, List<News> newsItems) {
         super(context, 0, newsItems);
     }
- // why getView preexists in the declaration but without being filled?
-    //what is the ViewGroup parent parameter and how (by which variable) is it filled?
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if there is an existing list item view (called convertView) that we can reuse,
@@ -45,20 +44,18 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
         News currentNewsItem = getItem(position);
-
+        //set the title
         TextView titleView = (TextView) listItemView.findViewById(R.id.title);
         String newsTitle = currentNewsItem.getTitle();
         titleView.setText(newsTitle);
-        //new comment
+        //set the date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
         String pubDate = currentNewsItem.getDate();
         dateView.setText(pubDate);
-
-//        //set the image
+        //set the image
         ImageView iv = (ImageView) listItemView.findViewById(R.id.news_thumbnail);
         Bitmap thumbnail = currentNewsItem.getImage();
         iv.setImageBitmap(thumbnail);
-
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
